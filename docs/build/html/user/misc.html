@@ -1,0 +1,531 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Miscellaneous &mdash; NumPy v1.16 Manual</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="NumPy for Matlab users" href="numpy-for-matlab-users.html" />
+    <link rel="prev" title="Subclassing ndarray" href="basics.subclassing.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">WebSiteName</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Page 1</a></li>
+        <li><a href="#">Page 2</a></li>
+        <li><a href="#">Page 3</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> NumPy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.16
+              </div>
+            
+          
+
+          
+<div id="searchbox" style="display: none" role="search">
+  <h4>Quick search</h4>
+    <div>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" style="width: inherit;" name="q" />
+      <input type="submit" value="search" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">NumPy User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="setting-up.html">Setting up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html">Quickstart tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basics.html">NumPy basics</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Miscellaneous</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ieee-754-floating-point-special-values">IEEE 754 Floating Point Special Values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-numpy-handles-numerical-exceptions">How numpy handles numerical exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interfacing-to-c">Interfacing to C</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interfacing-to-fortran">Interfacing to Fortran:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Interfacing to C++:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="numpy-for-matlab-users.html">NumPy for Matlab users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building.html">Building from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c-info.html">Using NumPy C-API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">NumPy Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/index.html">Contributing to NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/index.html">NumPy’s Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html#about-this-documentation">About this documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bugs.html">Reporting bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">NumPy License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">NumPy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">NumPy User Guide</a> &raquo;</li>
+        
+      <li>Miscellaneous</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-numpy.doc.misc">
+<span id="miscellaneous"></span><h1>Miscellaneous<a class="headerlink" href="#module-numpy.doc.misc" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="ieee-754-floating-point-special-values">
+<h2>IEEE 754 Floating Point Special Values<a class="headerlink" href="#ieee-754-floating-point-special-values" title="Permalink to this headline">¶</a></h2>
+<p>Special values defined in numpy: nan, inf,</p>
+<p>NaNs can be used as a poor-man’s mask (if you don’t care what the
+original value was)</p>
+<p>Note: cannot use equality to test NaNs. E.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">myarr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mf">3.</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">myarr</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="go">(array([], dtype=int64),)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>  <span class="c1"># is always False! Use special numpy functions instead.</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myarr</span><span class="p">[</span><span class="n">myarr</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.</span> <span class="c1"># doesn&#39;t work</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myarr</span>
+<span class="go">array([  1.,   0.,  NaN,   3.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myarr</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">myarr</span><span class="p">)]</span> <span class="o">=</span> <span class="mf">0.</span> <span class="c1"># use this instead find</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myarr</span>
+<span class="go">array([ 1.,  0.,  0.,  3.])</span>
+</pre></div>
+</div>
+<p>Other related special value functions:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">isinf</span><span class="p">():</span>    <span class="kc">True</span> <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="n">inf</span>
+<span class="n">isfinite</span><span class="p">():</span> <span class="kc">True</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">nan</span> <span class="ow">or</span> <span class="n">inf</span>
+<span class="n">nan_to_num</span><span class="p">():</span> <span class="n">Map</span> <span class="n">nan</span> <span class="n">to</span> <span class="mi">0</span><span class="p">,</span> <span class="n">inf</span> <span class="n">to</span> <span class="nb">max</span> <span class="nb">float</span><span class="p">,</span> <span class="o">-</span><span class="n">inf</span> <span class="n">to</span> <span class="nb">min</span> <span class="nb">float</span>
+</pre></div>
+</div>
+<p>The following corresponds to the usual functions except that nans are excluded
+from the results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nansum</span><span class="p">()</span>
+<span class="n">nanmax</span><span class="p">()</span>
+<span class="n">nanmin</span><span class="p">()</span>
+<span class="n">nanargmax</span><span class="p">()</span>
+<span class="n">nanargmin</span><span class="p">()</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">10.</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">nan</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">nansum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="mf">42.0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="how-numpy-handles-numerical-exceptions">
+<h2>How numpy handles numerical exceptions<a class="headerlink" href="#how-numpy-handles-numerical-exceptions" title="Permalink to this headline">¶</a></h2>
+<p>The default is to <code class="docutils literal notranslate"><span class="pre">'warn'</span></code> for <code class="docutils literal notranslate"><span class="pre">invalid</span></code>, <code class="docutils literal notranslate"><span class="pre">divide</span></code>, and <code class="docutils literal notranslate"><span class="pre">overflow</span></code>
+and <code class="docutils literal notranslate"><span class="pre">'ignore'</span></code> for <code class="docutils literal notranslate"><span class="pre">underflow</span></code>.  But this can be changed, and it can be
+set individually for different kinds of exceptions. The different behaviors
+are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>‘ignore’ : Take no action when the exception occurs.</p></li>
+<li><p>‘warn’   : Print a <em class="xref py py-obj">RuntimeWarning</em> (via the Python <a class="reference external" href="https://docs.python.org/dev/library/warnings.html#module-warnings" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">warnings</span></code></a> module).</p></li>
+<li><p>‘raise’  : Raise a <em class="xref py py-obj">FloatingPointError</em>.</p></li>
+<li><p>‘call’   : Call a function specified using the <em class="xref py py-obj">seterrcall</em> function.</p></li>
+<li><p>‘print’  : Print a warning directly to <code class="docutils literal notranslate"><span class="pre">stdout</span></code>.</p></li>
+<li><p>‘log’    : Record error in a Log object specified by <em class="xref py py-obj">seterrcall</em>.</p></li>
+</ul>
+</div></blockquote>
+<p>These behaviors can be set for all kinds of errors or specific ones:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>all       : apply to all numeric exceptions</p></li>
+<li><p>invalid   : when NaNs are generated</p></li>
+<li><p>divide    : divide by zero (for integers as well!)</p></li>
+<li><p>overflow  : floating point overflows</p></li>
+<li><p>underflow : floating point underflows</p></li>
+</ul>
+</div></blockquote>
+<p>Note that integer divide-by-zero is handled by the same machinery.
+These behaviors are set on a per-thread basis.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">oldsettings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">seterr</span><span class="p">(</span><span class="nb">all</span><span class="o">=</span><span class="s1">&#39;warn&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">/</span><span class="mf">0.</span>
+<span class="go">invalid value encountered in divide</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">seterr</span><span class="p">(</span><span class="n">under</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.e-100</span><span class="p">])</span><span class="o">**</span><span class="mi">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">seterr</span><span class="p">(</span><span class="n">invalid</span><span class="o">=</span><span class="s1">&#39;raise&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.</span><span class="p">]))</span>
+<span class="go">FloatingPointError: invalid value encountered in sqrt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">errorhandler</span><span class="p">(</span><span class="n">errstr</span><span class="p">,</span> <span class="n">errflag</span><span class="p">):</span>
+<span class="gp">... </span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;saw stupid error!&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">seterrcall</span><span class="p">(</span><span class="n">errorhandler</span><span class="p">)</span>
+<span class="go">&lt;function err_handler at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">seterr</span><span class="p">(</span><span class="nb">all</span><span class="o">=</span><span class="s1">&#39;call&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span><span class="o">/</span><span class="mi">0</span>
+<span class="go">FloatingPointError: invalid value encountered in divide</span>
+<span class="go">saw stupid error!</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">seterr</span><span class="p">(</span><span class="o">**</span><span class="n">oldsettings</span><span class="p">)</span> <span class="c1"># restore previous</span>
+<span class="gp">... </span>                             <span class="c1"># error-handling settings</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="interfacing-to-c">
+<h2>Interfacing to C<a class="headerlink" href="#interfacing-to-c" title="Permalink to this headline">¶</a></h2>
+<p>Only a survey of the choices. Little detail on how each works.</p>
+<ol class="arabic simple">
+<li><p>Bare metal, wrap your own C-code manually.</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>Plusses:</p>
+<ul>
+<li><p>Efficient</p></li>
+<li><p>No dependencies on other tools</p></li>
+</ul>
+</li>
+<li><p>Minuses:</p>
+<ul>
+<li><p>Lots of learning overhead:</p>
+<ul>
+<li><p>need to learn basics of Python C API</p></li>
+<li><p>need to learn basics of numpy C API</p></li>
+<li><p>need to learn how to handle reference counting and love it.</p></li>
+</ul>
+</li>
+<li><p>Reference counting often difficult to get right.</p>
+<ul>
+<li><p>getting it wrong leads to memory leaks, and worse, segfaults</p></li>
+</ul>
+</li>
+<li><p>API will change for Python 3.0!</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>Cython</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>Plusses:</p>
+<ul>
+<li><p>avoid learning C API’s</p></li>
+<li><p>no dealing with reference counting</p></li>
+<li><p>can code in pseudo python and generate C code</p></li>
+<li><p>can also interface to existing C code</p></li>
+<li><p>should shield you from changes to Python C api</p></li>
+<li><p>has become the de-facto standard within the scientific Python community</p></li>
+<li><p>fast indexing support for arrays</p></li>
+</ul>
+</li>
+<li><p>Minuses:</p>
+<ul>
+<li><p>Can write code in non-standard form which may become obsolete</p></li>
+<li><p>Not as flexible as manual wrapping</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>ctypes</p></li>
+</ol>
+<blockquote>
+<div><ul>
+<li><p>Plusses:</p>
+<ul>
+<li><p>part of Python standard library</p></li>
+<li><p>good for interfacing to existing sharable libraries, particularly
+Windows DLLs</p></li>
+<li><p>avoids API/reference counting issues</p></li>
+<li><p>good numpy support: arrays have all these in their ctypes
+attribute:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">data</span>              <span class="n">a</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">get_strides</span>
+<span class="n">a</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">data_as</span>           <span class="n">a</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">a</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">get_as_parameter</span>  <span class="n">a</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">shape_as</span>
+<span class="n">a</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">get_data</span>          <span class="n">a</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">strides</span>
+<span class="n">a</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">get_shape</span>         <span class="n">a</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">strides_as</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Minuses:</p>
+<ul class="simple">
+<li><p>can’t use for writing code to be turned into C extensions, only a wrapper
+tool.</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>SWIG (automatic wrapper generator)</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>Plusses:</p>
+<ul>
+<li><p>around a long time</p></li>
+<li><p>multiple scripting language support</p></li>
+<li><p>C++ support</p></li>
+<li><p>Good for wrapping large (many functions) existing C libraries</p></li>
+</ul>
+</li>
+<li><p>Minuses:</p>
+<ul>
+<li><p>generates lots of code between Python and the C code</p></li>
+<li><p>can cause performance problems that are nearly impossible to optimize
+out</p></li>
+<li><p>interface files can be hard to write</p></li>
+<li><p>doesn’t necessarily avoid reference counting issues or needing to know
+API’s</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="5">
+<li><p>scipy.weave</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>Plusses:</p>
+<ul>
+<li><p>can turn many numpy expressions into C code</p></li>
+<li><p>dynamic compiling and loading of generated C code</p></li>
+<li><p>can embed pure C code in Python module and have weave extract, generate
+interfaces and compile, etc.</p></li>
+</ul>
+</li>
+<li><p>Minuses:</p>
+<ul>
+<li><p>Future very uncertain: it’s the only part of Scipy not ported to Python 3
+and is effectively deprecated in favor of Cython.</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="6">
+<li><p>Psyco</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>Plusses:</p>
+<ul>
+<li><p>Turns pure python into efficient machine code through jit-like
+optimizations</p></li>
+<li><p>very fast when it optimizes well</p></li>
+</ul>
+</li>
+<li><p>Minuses:</p>
+<ul>
+<li><p>Only on intel (windows?)</p></li>
+<li><p>Doesn’t do much for numpy?</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="interfacing-to-fortran">
+<h2>Interfacing to Fortran:<a class="headerlink" href="#interfacing-to-fortran" title="Permalink to this headline">¶</a></h2>
+<p>The clear choice to wrap Fortran code is
+<a class="reference external" href="https://docs.scipy.org/doc/numpy/f2py/">f2py</a>.</p>
+<p>Pyfort is an older alternative, but not supported any longer.
+Fwrap is a newer project that looked promising but isn’t being developed any
+longer.</p>
+</div>
+<div class="section" id="id1">
+<h2>Interfacing to C++:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Cython</p></li>
+<li><p>CXX</p></li>
+<li><p>Boost.python</p></li>
+<li><p>SWIG</p></li>
+<li><p>SIP (used mainly in PyQT)</p></li>
+</ol>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="numpy-for-matlab-users.html" class="btn btn-neutral float-right" title="NumPy for Matlab users" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="basics.subclassing.html" class="btn btn-neutral float-left" title="Subclassing ndarray" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2008-2019, The SciPy community
+      <span class="lastupdated">
+        Last updated on Jul 08, 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

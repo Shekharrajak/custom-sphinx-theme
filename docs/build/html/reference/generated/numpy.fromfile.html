@@ -1,0 +1,375 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>numpy.fromfile &mdash; NumPy v1.16 Manual</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="numpy.fromfunction" href="numpy.fromfunction.html" />
+    <link rel="prev" title="numpy.frombuffer" href="numpy.frombuffer.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">WebSiteName</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Page 1</a></li>
+        <li><a href="#">Page 2</a></li>
+        <li><a href="#">Page 3</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> NumPy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.16
+              </div>
+            
+          
+
+          
+<div id="searchbox" style="display: none" role="search">
+  <h4>Quick search</h4>
+    <div>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" style="width: inherit;" name="q" />
+      <input type="submit" value="search" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user/index.html">NumPy User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">NumPy Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../arrays.html">Array objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../constants.html">Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ufuncs.html">Universal functions (<code class="xref py py-class docutils literal notranslate"><span class="pre">ufunc</span></code>)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../routines.html">Routines</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../routines.array-creation.html">Array creation routines</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../routines.array-creation.html#ones-and-zeros">Ones and zeros</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../routines.array-creation.html#from-existing-data">From existing data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../routines.array-creation.html#creating-record-arrays-numpy-rec">Creating record arrays (<code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.rec</span></code>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../routines.array-creation.html#creating-character-arrays-numpy-char">Creating character arrays (<code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.char</span></code>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../routines.array-creation.html#numerical-ranges">Numerical ranges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../routines.array-creation.html#building-matrices">Building matrices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../routines.array-creation.html#the-matrix-class">The Matrix class</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.array-manipulation.html">Array manipulation routines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.bitwise.html">Binary operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.char.html">String operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.ctypeslib.html">C-Types Foreign Function Interface (<code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.ctypeslib</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.datetime.html">Datetime Support Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.dtype.html">Data type routines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.dual.html">Optionally Scipy-accelerated routines (<code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.dual</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.emath.html">Mathematical functions with automatic domain (<code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.emath</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.err.html">Floating point error handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.fft.html">Discrete Fourier Transform (<code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.fft</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.financial.html">Financial functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.functional.html">Functional programming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.help.html">NumPy-specific help functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.indexing.html">Indexing routines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.io.html">Input and output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.linalg.html">Linear algebra (<code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.linalg</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.logic.html">Logic functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.ma.html">Masked array operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.math.html">Mathematical functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.matlib.html">Matrix library (<code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.matlib</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.other.html">Miscellaneous routines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.padding.html">Padding Arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.polynomials.html">Polynomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.set.html">Set routines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.sort.html">Sorting, searching, and counting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.statistics.html">Statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.testing.html">Test Support (<code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.testing</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.window.html">Window functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../distutils.html">Packaging (<code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.distutils</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distutils_guide.html">NumPy Distutils - Users Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../c-api.html">NumPy C-API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals.html">NumPy internals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../swig.html">NumPy and SWIG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#acknowledgements">Acknowledgements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev/index.html">Contributing to NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/index.html">NumPy’s Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html#about-this-documentation">About this documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bugs.html">Reporting bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">NumPy License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">NumPy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">NumPy Reference</a> &raquo;</li>
+        
+          <li><a href="../routines.html">Routines</a> &raquo;</li>
+        
+          <li><a href="../routines.array-creation.html">Array creation routines</a> &raquo;</li>
+        
+      <li>numpy.fromfile</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="numpy-fromfile">
+<h1>numpy.fromfile<a class="headerlink" href="#numpy-fromfile" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="numpy.fromfile">
+<code class="sig-prename descclassname">numpy.</code><code class="sig-name descname">fromfile</code><span class="sig-paren">(</span><em class="sig-param">file</em>, <em class="sig-param">dtype=float</em>, <em class="sig-param">count=-1</em>, <em class="sig-param">sep=''</em><span class="sig-paren">)</span><a class="headerlink" href="#numpy.fromfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct an array from data in a text or binary file.</p>
+<p>A highly efficient way of reading binary data with a known data-type,
+as well as parsing simply formatted text files.  Data written using the
+<em class="xref py py-obj">tofile</em> method can be read using this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>file</strong><span class="classifier">file or str</span></dt><dd><p>Open file object or filename.</p>
+</dd>
+<dt><strong>dtype</strong><span class="classifier">data-type</span></dt><dd><p>Data type of the returned array.
+For binary files, it is used to determine the size and byte-order
+of the items in the file.</p>
+</dd>
+<dt><strong>count</strong><span class="classifier">int</span></dt><dd><p>Number of items to read. <code class="docutils literal notranslate"><span class="pre">-1</span></code> means all items (i.e., the complete
+file).</p>
+</dd>
+<dt><strong>sep</strong><span class="classifier">str</span></dt><dd><p>Separator between items if file is a text file.
+Empty (“”) separator means the file should be treated as binary.
+Spaces (” “) in the separator match zero or more whitespace characters.
+A separator consisting only of spaces must match at least one
+whitespace.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="numpy.load.html#numpy.load" title="numpy.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>, <a class="reference internal" href="numpy.save.html#numpy.save" title="numpy.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a>, <a class="reference internal" href="numpy.ndarray.tofile.html#numpy.ndarray.tofile" title="numpy.ndarray.tofile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray.tofile</span></code></a></p>
+<dl class="simple">
+<dt><a class="reference internal" href="numpy.loadtxt.html#numpy.loadtxt" title="numpy.loadtxt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">loadtxt</span></code></a></dt><dd><p>More flexible way of loading data from a text file.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>Do not rely on the combination of <em class="xref py py-obj">tofile</em> and <a class="reference internal" href="#numpy.fromfile" title="numpy.fromfile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fromfile</span></code></a> for
+data storage, as the binary files generated are are not platform
+independent.  In particular, no byte-order or data-type information is
+saved.  Data can be stored in the platform independent <code class="docutils literal notranslate"><span class="pre">.npy</span></code> format
+using <a class="reference internal" href="numpy.save.html#numpy.save" title="numpy.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a> and <a class="reference internal" href="numpy.load.html#numpy.load" title="numpy.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a> instead.</p>
+<p class="rubric">Examples</p>
+<p>Construct an ndarray:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">([(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;sec&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)]),</span>
+<span class="gp">... </span>               <span class="p">(</span><span class="s1">&#39;temp&#39;</span><span class="p">,</span> <span class="nb">float</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">][</span><span class="s1">&#39;min&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;temp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">98.25</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">array([((10, 0), 98.25)],</span>
+<span class="go">      dtype=[(&#39;time&#39;, [(&#39;min&#39;, &#39;&lt;i4&#39;), (&#39;sec&#39;, &#39;&lt;i4&#39;)]), (&#39;temp&#39;, &#39;&lt;f8&#39;)])</span>
+</pre></div>
+</div>
+<p>Save the raw data to disk:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">tmpnam</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">tofile</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Read the raw data from disk:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
+<span class="go">array([((10, 0), 98.25)],</span>
+<span class="go">      dtype=[(&#39;time&#39;, [(&#39;min&#39;, &#39;&lt;i4&#39;), (&#39;sec&#39;, &#39;&lt;i4&#39;)]), (&#39;temp&#39;, &#39;&lt;f8&#39;)])</span>
+</pre></div>
+</div>
+<p>The recommended way to store and load data:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fname</span> <span class="o">+</span> <span class="s1">&#39;.npy&#39;</span><span class="p">)</span>
+<span class="go">array([((10, 0), 98.25)],</span>
+<span class="go">      dtype=[(&#39;time&#39;, [(&#39;min&#39;, &#39;&lt;i4&#39;), (&#39;sec&#39;, &#39;&lt;i4&#39;)]), (&#39;temp&#39;, &#39;&lt;f8&#39;)])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="numpy.fromfunction.html" class="btn btn-neutral float-right" title="numpy.fromfunction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="numpy.frombuffer.html" class="btn btn-neutral float-left" title="numpy.frombuffer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2008-2019, The SciPy community
+      <span class="lastupdated">
+        Last updated on Jul 08, 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

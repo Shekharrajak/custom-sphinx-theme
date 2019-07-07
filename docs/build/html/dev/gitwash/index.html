@@ -1,0 +1,299 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Git for development &mdash; NumPy v1.16 Manual</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Install git" href="git_intro.html" />
+    <link rel="prev" title="NumPy Code of Conduct" href="../conduct/code_of_conduct.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">WebSiteName</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Page 1</a></li>
+        <li><a href="#">Page 2</a></li>
+        <li><a href="#">Page 3</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> NumPy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.16
+              </div>
+            
+          
+
+          
+<div id="searchbox" style="display: none" role="search">
+  <h4>Quick search</h4>
+    <div>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" style="width: inherit;" name="q" />
+      <input type="submit" value="search" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user/index.html">NumPy User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">NumPy Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Contributing to NumPy</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#development-process-summary">Development process - summary</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#development-process-details">Development process - details</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../conduct/code_of_conduct.html">NumPy Code of Conduct</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Git Basics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="git_intro.html">Install git</a></li>
+<li class="toctree-l4"><a class="reference internal" href="following_latest.html">Get the local copy of the code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="following_latest.html#updating-the-code">Updating the code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="development_setup.html">Getting started with Git development</a></li>
+<li class="toctree-l4"><a class="reference internal" href="configure_git.html">Git configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dot2_dot3.html">Two and three dots in difference specs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="git_resources.html">Additional Git Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../development_environment.html">Setting up and using your development environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development_workflow.html">Development workflow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../style_guide.html">NumPy C Style Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../releasing.html">Releasing a Version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../governance/index.html">NumPy governance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/index.html">NumPy’s Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html#about-this-documentation">About this documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bugs.html">Reporting bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">NumPy License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">NumPy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Contributing to NumPy</a> &raquo;</li>
+        
+      <li>Git for development</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="git-for-development">
+<span id="git-development"></span><span id="using-git"></span><h1>Git for development<a class="headerlink" href="#git-for-development" title="Permalink to this headline">¶</a></h1>
+<p>These pages describe a general <a class="reference external" href="https://git-scm.com/">git</a> and <a class="reference external" href="https://github.com/numpy/numpy">github</a> workflow.</p>
+<p>This is not a comprehensive <a class="reference external" href="https://git-scm.com/">git</a> reference. It’s tailored to the <a class="reference external" href="https://github.com/numpy/numpy">github</a>
+hosting service. You may well find better or quicker ways of getting stuff done
+with <a class="reference external" href="https://git-scm.com/">git</a>, but these should get you started.</p>
+<p>For general resources for learning <a class="reference external" href="https://git-scm.com/">git</a> see <a class="reference internal" href="git_resources.html#git-resources"><span class="std std-ref">Additional Git Resources</span></a>.</p>
+<p>Have a look at the <a class="reference external" href="https://github.com/numpy/numpy">github</a> install help pages available from <a class="reference external" href="https://help.github.com">github help</a></p>
+<p id="install-git">Contents:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="git_intro.html">Install git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="following_latest.html">Get the local copy of the code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="following_latest.html#updating-the-code">Updating the code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_setup.html">Getting started with Git development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="development_setup.html#basic-git-setup">Basic Git setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development_setup.html#making-your-own-copy-fork-of-numpy">Making your own copy (fork) of NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development_setup.html#set-up-your-fork">Set up your fork</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configure_git.html">Git configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configure_git.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_git.html#in-detail">In detail</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dot2_dot3.html">Two and three dots in difference specs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_resources.html">Additional Git Resources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="git_resources.html#tutorials-and-summaries">Tutorials and summaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git_resources.html#advanced-git-workflow">Advanced git workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git_resources.html#manual-pages-online">Manual pages online</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="git_intro.html" class="btn btn-neutral float-right" title="Install git" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../conduct/code_of_conduct.html" class="btn btn-neutral float-left" title="NumPy Code of Conduct" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2008-2019, The SciPy community
+      <span class="lastupdated">
+        Last updated on Jul 08, 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

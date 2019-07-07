@@ -1,0 +1,412 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>numpy.unique &mdash; NumPy v1.16 Manual</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="numpy.flip" href="numpy.flip.html" />
+    <link rel="prev" title="numpy.trim_zeros" href="numpy.trim_zeros.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">WebSiteName</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Page 1</a></li>
+        <li><a href="#">Page 2</a></li>
+        <li><a href="#">Page 3</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> NumPy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.16
+              </div>
+            
+          
+
+          
+<div id="searchbox" style="display: none" role="search">
+  <h4>Quick search</h4>
+    <div>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" style="width: inherit;" name="q" />
+      <input type="submit" value="search" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user/index.html">NumPy User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">NumPy Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../arrays.html">Array objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../constants.html">Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ufuncs.html">Universal functions (<code class="xref py py-class docutils literal notranslate"><span class="pre">ufunc</span></code>)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../routines.html">Routines</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../routines.array-creation.html">Array creation routines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.array-manipulation.html">Array manipulation routines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.bitwise.html">Binary operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.char.html">String operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.ctypeslib.html">C-Types Foreign Function Interface (<code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.ctypeslib</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.datetime.html">Datetime Support Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.dtype.html">Data type routines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.dual.html">Optionally Scipy-accelerated routines (<code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.dual</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.emath.html">Mathematical functions with automatic domain (<code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.emath</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.err.html">Floating point error handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.fft.html">Discrete Fourier Transform (<code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.fft</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.financial.html">Financial functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.functional.html">Functional programming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.help.html">NumPy-specific help functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.indexing.html">Indexing routines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.io.html">Input and output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.linalg.html">Linear algebra (<code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.linalg</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.logic.html">Logic functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.ma.html">Masked array operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.math.html">Mathematical functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.matlib.html">Matrix library (<code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.matlib</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.other.html">Miscellaneous routines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.padding.html">Padding Arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.polynomials.html">Polynomials</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../routines.set.html">Set routines</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../routines.set.html#making-proper-sets">Making proper sets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../routines.set.html#boolean-operations">Boolean operations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.sort.html">Sorting, searching, and counting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.statistics.html">Statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.testing.html">Test Support (<code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.testing</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.window.html">Window functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../distutils.html">Packaging (<code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.distutils</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distutils_guide.html">NumPy Distutils - Users Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../c-api.html">NumPy C-API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals.html">NumPy internals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../swig.html">NumPy and SWIG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#acknowledgements">Acknowledgements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev/index.html">Contributing to NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/index.html">NumPy’s Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html#about-this-documentation">About this documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bugs.html">Reporting bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">NumPy License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">NumPy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">NumPy Reference</a> &raquo;</li>
+        
+          <li><a href="../routines.html">Routines</a> &raquo;</li>
+        
+          <li><a href="../routines.array-manipulation.html">Array manipulation routines</a> &raquo;</li>
+        
+      <li>numpy.unique</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="numpy-unique">
+<h1>numpy.unique<a class="headerlink" href="#numpy-unique" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="numpy.unique">
+<code class="sig-prename descclassname">numpy.</code><code class="sig-name descname">unique</code><span class="sig-paren">(</span><em class="sig-param">ar</em>, <em class="sig-param">return_index=False</em>, <em class="sig-param">return_inverse=False</em>, <em class="sig-param">return_counts=False</em>, <em class="sig-param">axis=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/numpy/numpy/blob/v1.16.4/numpy/lib/arraysetops.py#L151-L296"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numpy.unique" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the unique elements of an array.</p>
+<p>Returns the sorted unique elements of an array. There are three optional
+outputs in addition to the unique elements:</p>
+<ul class="simple">
+<li><p>the indices of the input array that give the unique values</p></li>
+<li><p>the indices of the unique array that reconstruct the input array</p></li>
+<li><p>the number of times each unique value comes up in the input array</p></li>
+</ul>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>ar</strong><span class="classifier">array_like</span></dt><dd><p>Input array. Unless <em class="xref py py-obj">axis</em> is specified, this will be flattened if it
+is not already 1-D.</p>
+</dd>
+<dt><strong>return_index</strong><span class="classifier">bool, optional</span></dt><dd><p>If True, also return the indices of <em class="xref py py-obj">ar</em> (along the specified axis,
+if provided, or in the flattened array) that result in the unique array.</p>
+</dd>
+<dt><strong>return_inverse</strong><span class="classifier">bool, optional</span></dt><dd><p>If True, also return the indices of the unique array (for the specified
+axis, if provided) that can be used to reconstruct <em class="xref py py-obj">ar</em>.</p>
+</dd>
+<dt><strong>return_counts</strong><span class="classifier">bool, optional</span></dt><dd><p>If True, also return the number of times each unique item appears
+in <em class="xref py py-obj">ar</em>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.9.0.</span></p>
+</div>
+</dd>
+<dt><strong>axis</strong><span class="classifier">int or None, optional</span></dt><dd><p>The axis to operate on. If None, <em class="xref py py-obj">ar</em> will be flattened. If an integer,
+the subarrays indexed by the given axis will be flattened and treated
+as the elements of a 1-D array with the dimension of the given axis,
+see the notes for more details.  Object arrays or structured arrays
+that contain objects are not supported if the <em class="xref py py-obj">axis</em> kwarg is used. The
+default is None.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.13.0.</span></p>
+</div>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>unique</strong><span class="classifier">ndarray</span></dt><dd><p>The sorted unique values.</p>
+</dd>
+<dt><strong>unique_indices</strong><span class="classifier">ndarray, optional</span></dt><dd><p>The indices of the first occurrences of the unique values in the
+original array. Only provided if <em class="xref py py-obj">return_index</em> is True.</p>
+</dd>
+<dt><strong>unique_inverse</strong><span class="classifier">ndarray, optional</span></dt><dd><p>The indices to reconstruct the original array from the
+unique array. Only provided if <em class="xref py py-obj">return_inverse</em> is True.</p>
+</dd>
+<dt><strong>unique_counts</strong><span class="classifier">ndarray, optional</span></dt><dd><p>The number of times each of the unique values comes up in the
+original array. Only provided if <em class="xref py py-obj">return_counts</em> is True.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.9.0.</span></p>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.lib.arraysetops</span></code></dt><dd><p>Module with a number of other functions for performing set operations on arrays.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>When an axis is specified the subarrays indexed by the axis are sorted.
+This is done by making the specified axis the first dimension of the array
+and then flattening the subarrays in C order. The flattened subarrays are
+then viewed as a structured type with each element given a label, with the
+effect that we end up with a 1-D array of structured types that can be
+treated in the same way as any other 1-D array. The result is that the
+flattened subarrays are sorted in lexicographic order starting with the
+first element.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="go">array([1, 2, 3])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">array([1, 2, 3])</span>
+</pre></div>
+</div>
+<p>Return the unique rows of a 2D array</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">array([[1, 0, 0], [2, 3, 4]])</span>
+</pre></div>
+</div>
+<p>Return the indices of the original array that give the unique values:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u</span><span class="p">,</span> <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">return_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u</span>
+<span class="go">array([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;],</span>
+<span class="go">       dtype=&#39;|S1&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">indices</span>
+<span class="go">array([0, 1, 3])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
+<span class="go">array([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;],</span>
+<span class="go">       dtype=&#39;|S1&#39;)</span>
+</pre></div>
+</div>
+<p>Reconstruct the input array from the unique values:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u</span><span class="p">,</span> <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">return_inverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u</span>
+<span class="go">array([1, 2, 3, 4, 6])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">indices</span>
+<span class="go">array([0, 1, 4, 3, 1, 2, 1])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
+<span class="go">array([1, 2, 6, 4, 2, 3, 2])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="numpy.flip.html" class="btn btn-neutral float-right" title="numpy.flip" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="numpy.trim_zeros.html" class="btn btn-neutral float-left" title="numpy.trim_zeros" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2008-2019, The SciPy community
+      <span class="lastupdated">
+        Last updated on Jul 08, 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

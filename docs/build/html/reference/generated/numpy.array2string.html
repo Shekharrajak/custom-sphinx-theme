@@ -1,0 +1,449 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>numpy.array2string &mdash; NumPy v1.16 Manual</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="numpy.array_repr" href="numpy.array_repr.html" />
+    <link rel="prev" title="numpy.fromregex" href="numpy.fromregex.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">WebSiteName</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Page 1</a></li>
+        <li><a href="#">Page 2</a></li>
+        <li><a href="#">Page 3</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> NumPy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.16
+              </div>
+            
+          
+
+          
+<div id="searchbox" style="display: none" role="search">
+  <h4>Quick search</h4>
+    <div>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" style="width: inherit;" name="q" />
+      <input type="submit" value="search" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user/index.html">NumPy User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">NumPy Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../arrays.html">Array objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../constants.html">Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ufuncs.html">Universal functions (<code class="xref py py-class docutils literal notranslate"><span class="pre">ufunc</span></code>)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../routines.html">Routines</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../routines.array-creation.html">Array creation routines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.array-manipulation.html">Array manipulation routines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.bitwise.html">Binary operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.char.html">String operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.ctypeslib.html">C-Types Foreign Function Interface (<code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.ctypeslib</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.datetime.html">Datetime Support Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.dtype.html">Data type routines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.dual.html">Optionally Scipy-accelerated routines (<code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.dual</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.emath.html">Mathematical functions with automatic domain (<code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.emath</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.err.html">Floating point error handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.fft.html">Discrete Fourier Transform (<code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.fft</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.financial.html">Financial functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.functional.html">Functional programming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.help.html">NumPy-specific help functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.indexing.html">Indexing routines</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../routines.io.html">Input and output</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../routines.io.html#numpy-binary-files-npy-npz">NumPy binary files (NPY, NPZ)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../routines.io.html#text-files">Text files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../routines.io.html#raw-binary-files">Raw binary files</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../routines.io.html#string-formatting">String formatting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../routines.io.html#memory-mapping-files">Memory mapping files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../routines.io.html#text-formatting-options">Text formatting options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../routines.io.html#base-n-representations">Base-n representations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../routines.io.html#data-sources">Data sources</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../routines.io.html#binary-format-description">Binary Format Description</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.linalg.html">Linear algebra (<code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.linalg</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.logic.html">Logic functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.ma.html">Masked array operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.math.html">Mathematical functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.matlib.html">Matrix library (<code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.matlib</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.other.html">Miscellaneous routines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.padding.html">Padding Arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.polynomials.html">Polynomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.set.html">Set routines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.sort.html">Sorting, searching, and counting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.statistics.html">Statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.testing.html">Test Support (<code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.testing</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../routines.window.html">Window functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../distutils.html">Packaging (<code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.distutils</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distutils_guide.html">NumPy Distutils - Users Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../c-api.html">NumPy C-API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals.html">NumPy internals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../swig.html">NumPy and SWIG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#acknowledgements">Acknowledgements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev/index.html">Contributing to NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/index.html">NumPy’s Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html#about-this-documentation">About this documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bugs.html">Reporting bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">NumPy License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">NumPy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">NumPy Reference</a> &raquo;</li>
+        
+          <li><a href="../routines.html">Routines</a> &raquo;</li>
+        
+          <li><a href="../routines.io.html">Input and output</a> &raquo;</li>
+        
+      <li>numpy.array2string</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="numpy-array2string">
+<h1>numpy.array2string<a class="headerlink" href="#numpy-array2string" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="numpy.array2string">
+<code class="sig-prename descclassname">numpy.</code><code class="sig-name descname">array2string</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">max_line_width=None</em>, <em class="sig-param">precision=None</em>, <em class="sig-param">suppress_small=None</em>, <em class="sig-param">separator=' '</em>, <em class="sig-param">prefix=''</em>, <em class="sig-param">style=&lt;no value&gt;</em>, <em class="sig-param">formatter=None</em>, <em class="sig-param">threshold=None</em>, <em class="sig-param">edgeitems=None</em>, <em class="sig-param">sign=None</em>, <em class="sig-param">floatmode=None</em>, <em class="sig-param">suffix=''</em>, <em class="sig-param">**kwarg</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/numpy/numpy/blob/v1.16.4/numpy/core/arrayprint.py#L518-L690"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#numpy.array2string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a string representation of an array.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>a</strong><span class="classifier">array_like</span></dt><dd><p>Input array.</p>
+</dd>
+<dt><strong>max_line_width</strong><span class="classifier">int, optional</span></dt><dd><p>The maximum number of columns the string should span. Newline
+characters splits the string appropriately after array elements.</p>
+</dd>
+<dt><strong>precision</strong><span class="classifier">int or None, optional</span></dt><dd><p>Floating point precision. Default is the current printing
+precision (usually 8), which can be altered using <a class="reference internal" href="numpy.set_printoptions.html#numpy.set_printoptions" title="numpy.set_printoptions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_printoptions</span></code></a>.</p>
+</dd>
+<dt><strong>suppress_small</strong><span class="classifier">bool, optional</span></dt><dd><p>Represent very small numbers as zero. A number is “very small” if it
+is smaller than the current printing precision.</p>
+</dd>
+<dt><strong>separator</strong><span class="classifier">str, optional</span></dt><dd><p>Inserted between elements.</p>
+</dd>
+<dt><strong>prefix</strong><span class="classifier">str, optional</span></dt><dd></dd>
+<dt><strong>suffix: str, optional</strong></dt><dd><p>The length of the prefix and suffix strings are used to respectively
+align and wrap the output. An array is typically printed as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">prefix</span> <span class="o">+</span> <span class="n">array2string</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="n">suffix</span>
+</pre></div>
+</div>
+<p>The output is left-padded by the length of the prefix string, and
+wrapping is forced at the column <code class="docutils literal notranslate"><span class="pre">max_line_width</span> <span class="pre">-</span> <span class="pre">len(suffix)</span></code>.
+It should be noted that the content of prefix and suffix strings are
+not included in the output.</p>
+</dd>
+<dt><strong>style</strong><span class="classifier">_NoValue, optional</span></dt><dd><p>Has no effect, do not use.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 1.14.0.</span></p>
+</div>
+</dd>
+<dt><strong>formatter</strong><span class="classifier">dict of callables, optional</span></dt><dd><p>If not None, the keys should indicate the type(s) that the respective
+formatting function applies to.  Callables should return a string.
+Types that are not specified (by their corresponding keys) are handled
+by the default formatters.  Individual types for which a formatter
+can be set are:</p>
+<ul class="simple">
+<li><p>‘bool’</p></li>
+<li><p>‘int’</p></li>
+<li><p>‘timedelta’ : a <code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.timedelta64</span></code></p></li>
+<li><p>‘datetime’ : a <code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.datetime64</span></code></p></li>
+<li><p>‘float’</p></li>
+<li><p>‘longfloat’ : 128-bit floats</p></li>
+<li><p>‘complexfloat’</p></li>
+<li><p>‘longcomplexfloat’ : composed of two 128-bit floats</p></li>
+<li><p>‘void’ : type <code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.void</span></code></p></li>
+<li><p>‘numpystr’ : types <code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.string_</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.unicode_</span></code></p></li>
+<li><p>‘str’ : all other strings</p></li>
+</ul>
+<p>Other keys that can be used to set a group of types at once are:</p>
+<ul class="simple">
+<li><p>‘all’ : sets all types</p></li>
+<li><p>‘int_kind’ : sets ‘int’</p></li>
+<li><p>‘float_kind’ : sets ‘float’ and ‘longfloat’</p></li>
+<li><p>‘complex_kind’ : sets ‘complexfloat’ and ‘longcomplexfloat’</p></li>
+<li><p>‘str_kind’ : sets ‘str’ and ‘numpystr’</p></li>
+</ul>
+</dd>
+<dt><strong>threshold</strong><span class="classifier">int, optional</span></dt><dd><p>Total number of array elements which trigger summarization
+rather than full repr.</p>
+</dd>
+<dt><strong>edgeitems</strong><span class="classifier">int, optional</span></dt><dd><p>Number of array items in summary at beginning and end of
+each dimension.</p>
+</dd>
+<dt><strong>sign</strong><span class="classifier">string, either ‘-‘, ‘+’, or ‘ ‘, optional</span></dt><dd><p>Controls printing of the sign of floating-point types. If ‘+’, always
+print the sign of positive values. If ‘ ‘, always prints a space
+(whitespace character) in the sign position of positive values.  If
+‘-‘, omit the sign character of positive values.</p>
+</dd>
+<dt><strong>floatmode</strong><span class="classifier">str, optional</span></dt><dd><p>Controls the interpretation of the <em class="xref py py-obj">precision</em> option for
+floating-point types. Can take the following values:</p>
+<ul class="simple">
+<li><p>‘fixed’: Always print exactly <em class="xref py py-obj">precision</em> fractional digits,
+even if this would print more or fewer digits than
+necessary to specify the value uniquely.</p></li>
+<li><p>‘unique’: Print the minimum number of fractional digits necessary
+to represent each value uniquely. Different elements may
+have a different number of digits.  The value of the
+<em class="xref py py-obj">precision</em> option is ignored.</p></li>
+<li><p>‘maxprec’: Print at most <em class="xref py py-obj">precision</em> fractional digits, but if
+an element can be uniquely represented with fewer digits
+only print it with that many.</p></li>
+<li><p>‘maxprec_equal’: Print at most <em class="xref py py-obj">precision</em> fractional digits,
+but if every element in the array can be uniquely
+represented with an equal number of fewer digits, use that
+many digits for all elements.</p></li>
+</ul>
+</dd>
+<dt><strong>legacy</strong><span class="classifier">string or <em class="xref py py-obj">False</em>, optional</span></dt><dd><p>If set to the string <em class="xref py py-obj">‘1.13’</em> enables 1.13 legacy printing mode. This
+approximates numpy 1.13 print output by including a space in the sign
+position of floats and different behavior for 0d arrays. If set to
+<em class="xref py py-obj">False</em>, disables legacy mode. Unrecognized strings will be ignored
+with a warning for forward compatibility.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.14.0.</span></p>
+</div>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>array_str</strong><span class="classifier">str</span></dt><dd><p>String representation of the array.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>TypeError</strong></dt><dd><p>if a callable in <a class="reference external" href="https://docs.python.org/dev/library/formatter.html#module-formatter" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">formatter</span></code></a> does not return a string.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="numpy.array_str.html#numpy.array_str" title="numpy.array_str"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array_str</span></code></a>, <a class="reference internal" href="numpy.array_repr.html#numpy.array_repr" title="numpy.array_repr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array_repr</span></code></a>, <a class="reference internal" href="numpy.set_printoptions.html#numpy.set_printoptions" title="numpy.set_printoptions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_printoptions</span></code></a>, <a class="reference internal" href="numpy.get_printoptions.html#numpy.get_printoptions" title="numpy.get_printoptions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_printoptions</span></code></a></p>
+</div>
+<p class="rubric">Notes</p>
+<p>If a formatter is specified for a certain type, the <em class="xref py py-obj">precision</em> keyword is
+ignored for that type.</p>
+<p>This is a very flexible function; <a class="reference internal" href="numpy.array_repr.html#numpy.array_repr" title="numpy.array_repr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array_repr</span></code></a> and <a class="reference internal" href="numpy.array_str.html#numpy.array_str" title="numpy.array_str"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array_str</span></code></a> are using
+<a class="reference internal" href="#numpy.array2string" title="numpy.array2string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array2string</span></code></a> internally so keywords with the same name should work
+identically in all three functions.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1e-16</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array2string</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">separator</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span>
+<span class="gp">... </span>                      <span class="n">suppress_small</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="go">[ 0., 1., 2., 3.]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">3.</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">array2string</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">formatter</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;float_kind&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">x</span><span class="p">})</span>
+<span class="go">&#39;[0.00 1.00 2.00]&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">array2string</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">formatter</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;int&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">hex</span><span class="p">(</span><span class="n">x</span><span class="p">)})</span>
+<span class="go">&#39;[0x0L 0x1L 0x2L]&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="numpy.array_repr.html" class="btn btn-neutral float-right" title="numpy.array_repr" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="numpy.fromregex.html" class="btn btn-neutral float-left" title="numpy.fromregex" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2008-2019, The SciPy community
+      <span class="lastupdated">
+        Last updated on Jul 08, 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
