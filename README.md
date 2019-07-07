@@ -4,10 +4,10 @@
 Run python setup inside custom-sphinx-theme:
 
 ```
-cd docs/src/custom-sphinx-theme && python setup.py install
+cd docs/src/custom-sphinx-theme && python setup.py install && make html
 ```
 
-then
+
 
 ```
 # node version 8.4.0
