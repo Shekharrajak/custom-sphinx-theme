@@ -4,7 +4,8 @@ matrix:
       before_script:
         - pip install sphinx
       script:
-        - cd docs && make html
+        - export NUMPYVER:=$(shell python3 -c "import numpy; print(numpy.version.git_revision[:10])")
+        - cd docs && GITVER=$(NUMPYVER) make html
 
     - language: node_js
       script:
