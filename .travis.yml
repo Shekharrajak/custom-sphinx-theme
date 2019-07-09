@@ -1,10 +1,10 @@
 matrix:
   include:
     - language: python
-      before_script:
-        - pip install sphinx
       script:
-        - cd docs && make html
+        - pip install sphinx numpy matplotlib IPython
+      after_success:
+        - bash ./generate_html.sh
 
     - language: node_js
       script:
