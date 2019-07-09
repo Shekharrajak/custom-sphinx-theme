@@ -1,0 +1,13 @@
+matrix:
+  include:
+    - language: python
+      before_script:
+        - pip install sphinx
+      script:
+        - cd docs && make html
+
+    - language: node_js
+      script:
+        - npm i -g surge
+      after_success:
+        - bash ./pr_deploy.sh
