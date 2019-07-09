@@ -1,9 +1,9 @@
 matrix:
   include:
     - language: python
-      before_script:
-        - pip install sphinx
       script:
+        - pip install sphinx
+      after_success:
         - bash ./generate_html.sh
 
     - language: node_js
