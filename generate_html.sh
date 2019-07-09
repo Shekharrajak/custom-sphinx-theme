@@ -4,4 +4,4 @@ pip install numpy
 pwd
 cd docs/src/custom-sphinx-theme && python setup.py install
 pwd
-cd ../../docs && GITVER=31465473c4 make html
+cd ../.. && GITVER=31465473c4 make html
