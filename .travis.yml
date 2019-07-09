@@ -9,5 +9,9 @@ matrix:
     - language: node_js
       script:
         - npm install --save-dev surge
-      after_success:
-        - bash ./pr_deploy.sh
+      # after_success:
+      #   - bash ./pr_deploy.sh
+      deploy:
+        provider: surge
+        project: ./docs/build/html
+        domain: https://pr-${TRAVIS_PULL_REQUEST}-numpy.surge.sh
