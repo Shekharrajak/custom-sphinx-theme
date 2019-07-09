@@ -8,6 +8,7 @@ matrix:
 
     - language: node_js
       script:
-        - npm i -g surge
+        - npm init
+        - npm install --save-dev surge
       after_success:
         - bash ./pr_deploy.sh
