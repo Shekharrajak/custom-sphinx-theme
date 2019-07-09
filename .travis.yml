@@ -2,7 +2,7 @@ matrix:
   include:
     - language: python
       script:
-        - pip install sphinx
+        - pip install sphinx numpy
       after_success:
         - bash ./generate_html.sh
 
