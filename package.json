@@ -18,5 +18,12 @@
   "bugs": {
     "url": "https://github.com/Shekharrajak/custom-sphinx-theme/issues"
   },
-  "homepage": "https://github.com/Shekharrajak/custom-sphinx-theme#readme"
+  "homepage": "https://github.com/Shekharrajak/custom-sphinx-theme#readme",
+  "devDependencies": {
+    "git-scripts": "^0.2.1",
+    "surge": "^0.21.3"
+  },
+
+  "git": { "scripts": { "pre-push": "surge --project ./docs/build/html --domain numpy.surge.sh"
+  }}
 }
