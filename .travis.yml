@@ -1,11 +1,10 @@
 matrix:
   include:
     - language: python
-      before_script:
-        - pip install sphinx
       script:
-        - export NUMPYVER:=$(shell python3 -c "import numpy; print(numpy.version.git_revision[:10])")
-        - cd docs && GITVER=$(NUMPYVER) make html
+        - pip install sphinx numpy matplotlib IPython
+      after_success:
+        - bash ./generate_html.sh
 
     - language: node_js
       script:
