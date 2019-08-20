@@ -21,13 +21,13 @@ files: [
   # Source files filter
   # e.g. "/resources/en/*.json"
   #
-  "source" : "/docs/**/*.rst",
+  "source" : "/docs/source/about.rst",
 
   #
   # where translations live
   # e.g. "/resources/%two_letters_code%/%original_file_name%"
   #
-  "translation" : "/docs/**/%two_letter_code%/%original_file_name%",
+  "translation" : "/docs/source/%two_letter_code%/%original_file_name%",
 
   #
   # files or directories for ignore
