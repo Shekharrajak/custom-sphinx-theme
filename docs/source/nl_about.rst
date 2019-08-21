@@ -1,8 +1,8 @@
-Over NumPy
+About NumPy
 ===========
 
 NumPy is the fundamental package
-NumPy is het fundament voor wetenschappelijke berekeningen in Python. Dit package bevat.: This package contains:
+needed for scientific computing with Python. This package contains:
 
 - a powerful N-dimensional :ref:`array object <arrays>`
 - sophisticated :ref:`(broadcasting) functions <ufuncs>`
