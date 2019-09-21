@@ -1,62 +1,62 @@
-About NumPy
-===========
+Over NumPy
+==========
 
-NumPy is the fundamental package
-needed for scientific computing with Python. This package contains:
+NumPy is het fundamentele pakket
+nodig voor wetenschappelijke controle met Python. Dit pakket bevat:
 
-- a powerful N-dimensional :ref:`array object <arrays>`
-- sophisticated :ref:`(broadcasting) functions <ufuncs>`
-- basic :ref:`linear algebra functions <routines.linalg>`
-- basic :ref:`Fourier transforms <routines.fft>`
-- sophisticated :ref:`random number capabilities <numpyrandom>`
-- tools for integrating Fortran code
-- tools for integrating C/C++ code
+- een krachtig N-dimensional :ref:`array object <arrays>`
+- verfijnde :ref:`(broadcasting) functies <ufuncs>`
+- basis :ref:`lineaire algebra functies <routines.linalg>`
+- basis :ref:`Fourier transformeert <routines.fft>`
+- verfijnde :ref:`willekeurige number mogelijkheden <numpyrandom>`
+- tools voor het integreren van de Fortran code
+- tools voor het integreren van C/C++++-code
 
-Besides its obvious scientific uses, *NumPy* can also be used as an
-efficient multi-dimensional container of generic data. Arbitrary
-data types can be defined. This allows *NumPy* to seamlessly and
-speedily integrate with a wide variety of databases.
+Naast de voor de hand liggende wetenschappelijke toepassingen, *NumPy* kan ook als een gebruikt worden
+efficiënte multi-dimensionale container van generieke gegevens. Arbitrary
+gegevenstypes kunnen worden gedefinieerd. Dit stelt *NumPy* naadloos en
+snel integreren met een breed scala aan databanken.
 
-NumPy is a successor for two earlier scientific Python libraries:
-Numeric and Numarray.
+NumPy is een opvolger voor twee eerdere wetenschappelijke Python bibliotheken:
+Numeriek en Numarray.
 
-NumPy community
+NumPy gemeenschap
 ---------------
 
-NumPy is a distributed, volunteer, open-source project. *You* can help
-us make it better; if you believe something should be improved either
-in functionality or in documentation, don't hesitate to contact us --- or
-even better, contact us and participate in fixing the problem.
+NumPy is een verspreid, vrijwilliger, open-source project. *Je* kan helpen
+we maken het beter; als je denkt dat er ook iets verbeterd moet worden
+in functionaliteit of in documentatie, aarzel niet om contact met ons op te nemen --- of
+Nog beter, neem contact met ons op en neem deel aan de oplossing van het probleem.
 
-Our main means of communication are:
+Onze belangrijkste communicatiemiddelen zijn:
 
 - `scipy.org website <https://scipy.org/>`__
 
-- `Mailing lists <https://scipy.org/scipylib/mailing-lists.html>`__
+- `Mailinglijsten <https://scipy.org/scipylib/mailing-lists.html>`__
 
-- `NumPy Issues <https://github.com/numpy/numpy/issues>`__ (bug reports go here)
+- `NumPy Issues <https://github.com/numpy/numpy/issues>`__ (bug rapporten gaan hier)
 
-- `Old NumPy Trac <http://projects.scipy.org/numpy>`__ (dead link)
+- `Oude NumPy Trac <http://projects.scipy.org/numpy>`__ (dode link)
 
-More information about the development of NumPy can be found at our `Developer Zone <https://scipy.scipy.org/scipylib/dev-zone.html>`__.
+Meer informatie over de ontwikkeling van NumPy kan worden gevonden in onze 'Developer Zone' <https://scipy.scipy.org/scipylib/dev-zone.html>`__.
 
-The project management structure can be found at our :doc:`governance page <dev/governance/index>`
+De project management structuur kan worden gevonden op onze :doc:`governance pagina <dev/governance/index>`
 
 
-About this documentation
-========================
+Over deze documentatie
+===============================
 
-Conventions
+Conventies
 -----------
 
-Names of classes, objects, constants, etc. are given in **boldface** font.
-Often they are also links to a more detailed documentation of the
-referred object.
+Namen van klassen, objecten, constanten, etc. worden gegeven in **boldface** lettertype.
+Vaak zijn het ook links naar een gedetailleerder document van de
+verwezen object.
 
-This manual contains many examples of use, usually prefixed with the
-Python prompt ``>>>`` (which is not a part of the example code). The
-examples assume that you have first entered::
+Deze handleiding bevat veel voorbeelden van gebruik, meestal vooraf met de
+Python prompt ``>>>`` (dat geen deel uitmaakt van de voorbeeldcode). De
+voorbeelden gaan ervan uit dat je voor het eerst hebt ingevoerd::
 
->>> import numpy as np
+>>> Importeer numpy als np
 
-before running the examples.
+voordat u de voorbeelden hebt gevolgd.
